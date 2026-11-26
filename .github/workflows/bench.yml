@@ -28,6 +28,7 @@ jobs:
         env:
           SET: ${{ matrix.set }}
         run: |
+          sed -i 's/\r$//' w/*.sh w/*.py
           bash w/run.sh > result.txt 2>&1 || true
       - name: pack
         if: always()
